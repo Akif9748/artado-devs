@@ -1,7 +1,7 @@
 {
     "name": "artado-devs",
-    "version": "5.5.2",
-    "description": "",
+    "version": "0.0.1",
+    "description": "Artado devs node.js version",
     "main": "src/index.js",
     "scripts": {
         "start": "node .",
