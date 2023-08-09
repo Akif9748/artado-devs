@@ -1,0 +1,31 @@
+{
+    "name": "artado-devs",
+    "version": "5.5.2",
+    "description": "",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Akif9748",
+    "license": "GPL-3.0-or-later",
+    "engines": {
+        "node": ">=16"
+    },
+    "dependencies": {
+        "bcrypt": "^5.1.0",
+        "dotenv": "^16.0.3",
+        "ejs": "^3.1.6",
+        "express": "^4.18.2",
+        "express-rate-limit": "^6.6.0",
+        "express-session": "^1.17.2",
+        "multer": "^1.4.5-lts.1",
+        "node-fetch": "^2.6.7",
+        "nodemailer": "^6.8.0",
+        "request-ip": "^3.3.0",
+        "resx": "^2.0.4"
+    },
+    "devDependencies": {
+        "eslint": "^8.25.0"
+    }
+}

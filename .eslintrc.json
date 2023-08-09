@@ -1,0 +1,27 @@
+{
+    "ignorePatterns": [
+        "test.js"
+    ],
+    "env": {
+        "node": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "no-use-before-define": "error"
+    },
+    "overrides": [
+        {
+            "env": {
+                "browser": true
+            },
+            "files": [
+                "src/public/js/*"
+            ]
+        }
+    ]
+}
