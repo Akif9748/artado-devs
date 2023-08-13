@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<head runat="server">
+<head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="/css/mdb.min.css" type="text/css" />
   <link rel="stylesheet" href="/css/style.css" type="text/css" />
@@ -35,14 +34,14 @@
 </head>
 
 <body style="background-color: #1C1C1C">
-  <form id="form1" runat="server">
-    <div class="container">
-      <div class="mb-3"></div>
+  <div class="container">
 
-      <%- include("partials/navbar"); %>
+    <%- include("partials/navbar"); %>
 
-      <% if (mode==="register"){ %>
-      <div id="register" runat="server" class="row justify-content-center">
+    <% if (mode==="register") { %>
+    <form method="post" action="/register">
+
+      <div id="register" class="row justify-content-center">
         <h4 class="fontlu text-light text-center" style="margin-top: 50px"><b>
             <%=localize.RegisterTitle%>
           </b></h4>
@@ -50,39 +49,57 @@
           <%=localize.RegisterText%>
         </p>
         <div class="form-outline col-md-6 form-white mb-3 mx-1">
-          <input id="Mail" runat="server" type="email" class="form-control form-control-lg" />
+          <input name="Mail" type="email" class="form-control form-control-lg" />
           <label class="form-label" for="formControlLg">
             <%=localize.EMail%>
           </label>
         </div>
         <div class="form-outline col-md-6 form-white mb-3 mx-1">
-          <input id="pass" runat="server" type="password" class="form-control form-control-lg" />
+          <input name="Password" type="password" class="form-control form-control-lg" />
           <label class="form-label" for="formControlLg">
             <%=localize.Password%>
           </label>
         </div>
         <div class="form-outline col-md-6 form-white mb-3 mx-1">
-          <input id="Username" runat="server" type="text" class="form-control form-control-lg" />
+          <input name="Username" type="text" class="form-control form-control-lg" />
           <label class="form-label" for="formControlLg">
             <%=localize.AuthorName%>
           </label>
         </div>
         <div class="form-outline col-md-6 form-white mb-3 mx-1">
-          <input id="Bio" runat="server" type="text" class="form-control form-control-lg" />
+          <input name="Bio" type="text" class="form-control form-control-lg" />
           <label class="form-label" for="formControlLg">
             <%=localize.Description%>
           </label>
         </div>
         <div class="form-outline col-md-6 form-white mb-3 mx-1">
-          <input id="Site" runat="server" type="text" class="form-control form-control-lg" />
+          <input name="Site" type="text" class="form-control form-control-lg" />
           <label class="form-label" for="formControlLg">
             <%=localize.Website%>
           </label>
         </div>
       </div>
-      <%} else (mode==="login"){%>
 
-      <div id="login" runat="server" class="row justify-content-center">
+
+      <div id="r_button" class="d-flex justify-content-center align-items-center h-100">
+
+        <button class="btn btn-light btn-lg mb-3" type="submit" style="color: #9147ff !important;">
+          <%=localize.Register%>
+        </button>
+      </div>
+      <div id="l_button" class="d-flex justify-content-center align-items-center h-100">
+
+        <a href="/login" class="btn btn-light btn-lg mb-3" style="color: #9147ff !important;">
+          <%=localize.Login%>
+        </a>
+      </div>
+    </form>
+
+
+    <%} else if (mode==="login"){%>
+    <form method="post" action="/login">
+
+      <div id="login" class="row justify-content-center">
         <h4 class="fontlu text-light text-center" style="margin-top: 50px"><b>
             <%=localize.LoginTitle%>
           </b></h4>
@@ -90,21 +107,39 @@
           <%=localize.LoginText%>
         </p>
         <div class="form-outline col-md-6 form-white mb-3 mx-1">
-          <input id="email" runat="server" type="text" class="form-control form-control-lg" />
+          <input name="Mail" type="text" class="form-control form-control-lg" />
           <label class="form-label" for="formControlLg">
             <%=localize.EMail%>
           </label>
         </div>
         <div class="form-outline col-md-6 form-white mb-3 mx-1">
-          <input id="password_l" runat="server" type="password" class="form-control form-control-lg" />
+          <input name="Password" type="password" class="form-control form-control-lg" />
           <label class="form-label" for="formControlLg">
             <%=localize.Password%>
           </label>
         </div>
       </div>
-      <%} else (mode==="mail"){%>
 
-      <div id="Mail_Onay" runat="server" class="row justify-content-center">
+      <div id="l_button" class="d-flex justify-content-center align-items-center h-100">
+
+        <button class="btn btn-light btn-lg mb-3" type="submit" style="color: #9147ff !important;">
+          <%=localize.Login%>
+        </button>
+      </div>
+      <div id="r_button" class="d-flex justify-content-center align-items-center h-100">
+
+        <a href="/register" class="btn btn-light btn-lg mb-3" style="color: #9147ff !important;">
+          <%=localize.Register%>
+        </a>
+      </div>
+    </form>
+
+
+    <%} else if (mode==="mail"){%>
+
+    <form method="post" action="/confirm">
+
+      <div id="Mail_Onay" class="row justify-content-center">
         <h4 class="fontlu text-light text-center" style="margin-top: 50px"><b>
             <%=localize.EnterVerifyCode%>
           </b></h4>
@@ -112,48 +147,38 @@
           <%=localize.VerifyText%>
         </p>
         <div class="form-outline col-md-6 form-white mb-3 mx-1">
-          <input id="code" runat="server" type="text" class="form-control form-control-lg" />
+          <input name="code" type="text" class="form-control form-control-lg" />
           <label class="form-label" for="formControlLg">
             <%=localize.VerificationCode%>
           </label>
         </div>
       </div>
 
-      <%} %>
 
-      <div id="a_button" runat="server" class="d-flex justify-content-center align-items-center h-100">
-        <asp:Button ID="Button1" runat="server" class="btn btn-light btn-lg mb-3" href="#!" role="button" style="color: #9147ff !important;" Text="<%=localize.Accept%>" OnClick="Accept" />
-        <br />
+      <div id="a_button" class="d-flex justify-content-center align-items-center h-100">
+
+        <a class="btn btn-light btn-lg mb-3" type="submit" style="color: #9147ff !important;">
+          <%=localize.Accept%>
+        </a>
       </div>
-      <div id="a_button2" runat="server" class="d-flex justify-content-center align-items-center h-100">
-        <asp:Button ID="Button3" runat="server" class="btn btn-light btn-lg mb-3" href="#!" role="button" style="color: #9147ff !important;" Text="<%=localize.Accept%>" OnClick="Login_Accept" />
-        <br />
-      </div>
-      <div id="re_button" runat="server" class="d-flex justify-content-center align-items-center h-100">
-        <asp:Button ID="Button2" runat="server" class="btn btn-light btn-lg mb-3" href="#!" role="button" style="color: #9147ff !important;" Text="<%=localize.SendAgain%>" OnClick="Resend" />
-        <br />
-      </div>
-      <div id="tos" runat="server" style="font-size: small; text-decoration: none; color: white">
-        <%=localize.TOSText%>
-      </div>
-      <div id="r_button" runat="server" class="d-flex justify-content-center align-items-center h-100">
-        <asp:Button ID="RegisterB" runat="server" class="btn btn-light btn-lg mb-3" href="#!" role="button" style="color: #9147ff !important;" Text="<%=localize.Register%>" OnClick="Register" />
-        <br />
-      </div>
-      <div id="l_button" runat="server" class="d-flex justify-content-center align-items-center h-100">
-        <asp:Button ID="LoginB" runat="server" class="btn btn-light btn-lg mb-3" href="#!" role="button" style="color: #9147ff !important;" Text="<%=localize.Login%>" OnClick="Login" />
-        <br />
-      </div>
+    </form>
+
+
+    <%} %>
+
+
+    <div id="tos" style="font-size: small; text-decoration: none; color: white">
+      <%- localize.TOSText %>
+    </div>
 
 
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <script src="js/main.js"></script>
-      <script src="js/mdb.min.js"></script>
-  </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="/js/mdb.min.js"></script>
 </body>
 
 </html>

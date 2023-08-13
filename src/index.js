@@ -1,8 +1,7 @@
-const path = require("path");
-
 require("dotenv").config();
+
 const
-    //   { def_theme, forum_name, description, limits, global_ratelimit: RLS, discord_auth, host } = require("../config.json"),
+    sql = require('mssql'),
     port = process.env.PORT || 3000,
     express = require('express'),
     fs = require("fs"),
@@ -10,6 +9,15 @@ const
     app = express(),
     { mw: IP } = require('request-ip'),
     SES = require('express-session');
+
+sql.connect({
+    database: process.env.database,
+    user: process.env.user,
+    server: process.env.server,
+    password: process.env.password,
+    trustServerCertificate: true
+}).then(async () => console.log("MSSQL: connected."));
+
 
 app.ips = [];
 
@@ -32,12 +40,12 @@ app.use(express.static(join(__dirname, "public")),
         // }) : null;
 
         const localize = require("./language/" + (req.cookies?.lang || "tr").toLowerCase() + ".json");
-            
+
         res.reply = (page, options = {}, status = 200) => res.status(status).render(
-                path.join(__dirname, "views", page + ".ejs"), {
-                localize,
-                ...options
-            });
+            join(__dirname, "views", page + ".ejs"), {
+            localize,
+            ...options
+        });
 
 
         res.error = (type, error) => res.reply("error", { type, error }, type);
