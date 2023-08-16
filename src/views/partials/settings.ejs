@@ -1,0 +1,45 @@
+<div id="settings" class="products">
+  <div id="edit" style="margin-left: 50px">
+    <span id="Label58" style="font-size:22px;"><%=localize.AccountSettings%></span><br>
+    <img id="pfp" class="profile" src="/Upload/profiles/<%= user.Logo%>"><br>
+    <input type="file" name="upload" id="upload" class="dlist" accept="image/png, image/jpeg,image/jpeg,image/gif" style="border-style:None;"><br>
+    <input name="email" type="text" id="email" class="textbox" placeholder="<%=localize.Email%>" value="<%= user.Mail%>"><br>
+    <input name="username" type="text" id="username" class="textbox" placeholder="<%=localize.Username%>" value="<%=user.Name%>"><br>
+    <input name="password" type="password" id="password" class="textbox" placeholder="<%=localize.Password%>"><br>
+    <textarea name="bio" id="bio" cols="20" rows="2" class="textbox" style="margin-bottom: 20px;" placeholder="<%=localize.Biography%>"></textarea><br>
+    <select name="language" id="Languages" class="dlist">
+      <option value="Languages" disabled="">Languages</option>
+      <option selected="selected" value="en">English</option>
+      <option value="tr">Turkish</option>
+
+    </select><br><br><br>
+
+
+    <input type="submit" name="Button7" value="<%=localize.Save%>" id="Button7" class="btn btn-light btn-lg mb-3" style="color: #9147ff !important; margin-right: 20px">
+  </div>
+
+
+</div>
+
+<div id="settings" runat="server" class="products">
+    <div id="edit" runat="server" style="margin-left: 50px">
+        <asp:Label ID="Label58" runat="server" Text="<%=localize.AccountSettings%>" style="font-size:22px;"></asp:Label><br />
+        <asp:Image id="pfp" runat="server" CssClass="profile"></asp:Image><br />
+        <asp:FileUpload ID="upload" runat="server" CssClass="dlist" BorderStyle="None" accept="image/png, image/jpeg,image/jpeg,image/gif"/><br />
+        <asp:TextBox ID="email" runat="server" placeholder="<%=localize.Email%>" CssClass="textbox"></asp:TextBox><br />
+        <asp:TextBox ID="username" runat="server" placeholder="<%=localize.Username%>" CssClass="textbox"></asp:TextBox><br />
+        <asp:TextBox ID="password" runat="server" placeholder="<%=localize.Password%>" TextMode="Password" CssClass="textbox"></asp:TextBox><br />
+        <textarea id="bio" runat="server" cols="20" rows="2" placeholder="<%=localize.Biography%>" class="textbox" style="margin-bottom: 20px;"></textarea><br /><br /><br />
+        <div id="att" runat="server" class="att">
+            <i class="bi bi-exclamation-octagon" style="font-size: 30px; margin-right: 10px; margin-left: 10px"></i>
+            <asp:Label ID="Label59" runat="server" Text="<%=localize.BetaUnpaidWarning%>" Font-Size="Medium"></asp:Label>
+        </div>
+        <asp:Panel ID="Panel1" CssClass="danger" runat="server">
+            <i class="bi bi-exclamation-octagon" style="font-size: 30px; margin-right: 10px; margin-left: 10px"></i>
+            <asp:Label ID="Label60" runat="server" Text="<%=localize.UsernameOrEmailTaken%>" Font-Size="Medium"></asp:Label>
+        </asp:Panel>
+        <asp:Button ID="Button7" runat="server" Text="<%=localize.Save%>" class="btn btn-light btn-lg mb-3" style="color: #9147ff !important; margin-right: 20px" OnClick="AccUpdate"/>
+    </div>
+    
+
+</div>

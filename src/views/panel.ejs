@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="https://www.artadosearch.com/bootstrap-4.5.3-dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/mdb.min.css" type="text/css" />
+  <link href="/Panel/css/style.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="/ism/css/my-slider.css" />
+  <script src="/ism/js/ism-2.2.min.js"></script>
+  <script src="https://kit.fontawesome.com/641f7d1cc6.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&amp;family=Quicksand:wght@300&amp;family=Zen+Kaku+Gothic+Antique:wght@300&amp;display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="js/mdb.min.js"></script>
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <title>
+    Panel - Artado Developers
+  </title>
+</head>
+
+<body>
+  <form method="post" action="./panel" id="form1">
+    <nav class="sidebar">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="/images/logo.png" alt="" />
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">Developers</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="/panel">
+                <i class="bi bi-house icon"></i>
+                <span class="text nav-text"><%=localize.Home%></span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/panel/apps">
+                <i class='bx bx-store-alt icon'></i>
+                <span class="text nav-text"><%=localize.MyApplications%></span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/panel/games">
+                <i class="bi bi-controller icon"></i>
+                <span class="text nav-text"><%=localize.MyGames%></span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/panel/apis">
+                <i class="bi bi-cloud icon"></i>
+                <span class="text nav-text"><%=localize.APIs%></span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/panel/workshop">
+                <i class="bi bi-droplet icon"></i>
+                <span class="text nav-text">Workshop</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/panel/events">
+                <i class="bi bi-calendar-event icon"></i>
+                <span class="text nav-text"><%=localize.Events%></span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/panel/collections">
+                <i class="bi bi-collection icon"></i>
+                <span class="text nav-text"><%=localize.Collections%></span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/panel/team">
+                <i class="bi bi-people-fill icon"></i>
+                <span class="text nav-text"><%=localize.Team%></span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="/panel/settings">
+                <i class="bi bi-gear icon"></i>
+                <span class="text nav-text"><%=localize.Settings%></span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+    </nav>
+
+    <nav class="mobil-sidebar">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="/images/logo.png" alt="" />
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">Developers</span>
+          </div>
+        </div>
+      </header>
+
+      <button class="btn btn-success menu" style="margin-top: 10px; height: 35px; background: #5F5F87" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" data-ripple-color="dark" aria-controls="offcanvasRight"><i class="bi-list"></i></button>
+      <div class="offcanvas offcanvas-end" style="max-width: 300px; border-top-left-radius:10px; border-bottom-left-radius:10px;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <style>
+          ::-webkit-scrollbar {
+            width: 4px;
+            color: #3c3c3c;
+          }
+        </style>
+        <div class="offcanvas-header">
+          <div class="image-text">
+            <span class="image">
+              <img src="/images/logo.png" alt="" />
+            </span>
+
+            <div class="text logo-text">
+              <span class="name">Developers</span>
+            </div>
+          </div>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="menu-bar">
+            <div class="menu">
+              <ul class="menu-links">
+                <li class="nav-link">
+                  <a href="/panel">
+                    <i class="bi bi-house icon"></i>
+                    <span class="text nav-text"><%=localize.Home%></span>
+                  </a>
+                </li>ß
+                <li class="nav-link">
+                  <a href="/panel/apps">
+                    <i class='bx bx-store-alt icon'></i>
+                    <span class="text nav-text"><%=localize.MyApplications%></span>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="/panel/games">
+                    <i class="bi bi-controller icon"></i>
+                    <span class="text nav-text"><%=localize.MyGames%></span>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="/panel/api">
+                    <i class="bi bi-cloud icon"></i>
+                    <span class="text nav-text"><%=localize.APIs%></span>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="/panel/workshop">
+                    <i class="bi bi-droplet icon"></i>
+                    <span class="text nav-text">Workshop</span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="/panel/events">
+                    <i class="bi bi-calendar-event icon"></i>
+                    <span class="text nav-text"><%=localize.Events%></span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="/panel/collections">
+                    <i class="bi bi-collection icon"></i>
+                    <span class="text nav-text"><%=localize.Collections%></span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="/panel/team">
+                    <i class="bi bi-people-fill icon"></i>
+                    <span class="text nav-text"><%=localize.Team%></span>
+                  </a>
+                </li>
+                <li class="nav-link">
+                  <a href="/panel/settings">
+                    <i class="bi bi-gear icon"></i>
+                    <span class="text nav-text"><%=localize.Settings%></span>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </nav>
+
+    <% console.log(URL)%>
+
+
+
+
+    <% if(URL==="soon") {%>
+
+    <div id="Soon" class="products">
+      <div class="tip" style="margin-left: auto; margin-right: auto">
+        <i class="bi bi-exclamation-octagon" style="font-size: 30px; margin-right: 10px; margin-left: 10px"></i>
+        <span Font-Size="Medium"><%=localize.BetaWarning%></span>
+      </div>
+    </div>
+
+    <% } else if(URL==="") {%>
+
+    <%- include("partials/panel"); %>
+
+    <% } else if(URL==="apps"){%>
+
+
+    <div id="apps" class="products">
+      <a href="/apps/create" class="more" style="float:right;  margin-top: 10px !important">
+        <%=localize.CreateApp%>
+      </a>
+
+      <div id="appstext" style="font-size:22px; margin-left: 20px;"><%=localize.MyApplications%></div>
+
+      <%- include("partials/products"); %>
+    </div>
+
+
+    <% } else if(URL==="games"){%>
+    <div id="games" class="products">
+      <a href="/games/create" class="more" style="float:right;  margin-top: 10px !important">
+        <%=localize.CreateGame%>
+      </a>
+      <div id="gamestext" style="font-size:22px; margin-left: 20px;"><%=localize.MyGames%></div>
+
+      <%- include("partials/products"); %>
+
+
+    </div>
+
+    <% } else if(URL==="apis"){%>
+      <div id="games" class="products">
+        <a href="/apis/create" class="more" style="float:right;  margin-top: 10px !important">
+          <%=localize.CreateAPI%>        </a>
+        <div id="gamestext" style="font-size:22px; margin-left: 20px;"><%=localize.APIs%></div>
+
+        <%- include("partials/products"); %>
+
+      </div>
+      <% } else if(URL==="workshop"){%>
+        <div id="games" class="products">
+          <a href="/workshop/create" class="more" style="float:right;  margin-top: 10px !important">
+            <%=localize.CreateProject%>       </a>
+          <div id="gamestext" style="font-size:22px; margin-left: 20px;">Workshop</div>
+  
+          <%- include("partials/products"); %>
+  
+        </div>
+      
+     
+    <% } else if(URL==="settings"){%>
+
+    <%- include("partials/settings"); %>
+    <% } %>
+  </form>
+</body>
+
+</html>

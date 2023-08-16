@@ -25,12 +25,12 @@ app.post("/confirm", async (req, res) => {
     req.session.userID = read.recordset[0].ID;
 
     console.log(read)
-    res.redirect("/devs/panel");
+    res.redirect("/panel");
 
 })
 
 app.post("/", async (req, res) => {
-    const { Mail, Password } = req.body; console.log(req.body)
+    const { Mail, Password } = req.body;
     if (!Mail || !Password) {
 
         return res.error(
@@ -47,7 +47,6 @@ app.post("/", async (req, res) => {
     }
 
    const pwdHashed = SecurityHelper.hashPassword(Password, reading.recordset[0].Salt, 10101, 70);
-   console.log(reading.recordset[0].Password, pwdHashed)
 
     if (reading.recordset[0].Password !== pwdHashed)
          return res.error(401, 'Incorrect password!');
@@ -62,16 +61,17 @@ app.post("/", async (req, res) => {
             from: '"Artado" <support@artadosearch.com>', // sender address
             to: Mail, // list of receivers
             subject: "Your Account Has Been Logged In - Artado Developers", // Subject line
-            text: `${loginCode}`,
+      //      text: `${loginCode}`,
             html: "<td style=\"text-align:center\"><h5>Your Artado Developers Account was logged in from:</h5><h4>" + "Browser: " + browser + "<br/> IP Address: " + ip + "<br/> <h5>Please use this code to confirm that you are the one logged in:</h5><h4>" + loginCode + "</h4> <h6>If you're not the one who logged in, change your password.</h6> </td>"
 
 
         });
-        console.log(info);
+        console.log(loginCode );
         req.session.tempUserInfo = { Mail };
 
         res.reply("submit", {
-            mode: "mail"
+            mode: "mail",
+           login:true
         });
 
     }

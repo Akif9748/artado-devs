@@ -137,7 +137,7 @@
 
     <%} else if (mode==="mail"){%>
 
-    <form method="post" action="/confirm">
+    <form method="post" action="/<%= login ? "login":"register"%>/confirm">
 
       <div id="Mail_Onay" class="row justify-content-center">
         <h4 class="fontlu text-light text-center" style="margin-top: 50px"><b>
@@ -156,10 +156,9 @@
 
 
       <div id="a_button" class="d-flex justify-content-center align-items-center h-100">
-
-        <a class="btn btn-light btn-lg mb-3" type="submit" style="color: #9147ff !important;">
+        <button class="btn btn-light btn-lg mb-3" type="submit" style="color: #9147ff !important;">
           <%=localize.Accept%>
-        </a>
+        </button >
       </div>
     </form>
 

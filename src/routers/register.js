@@ -28,7 +28,8 @@ app.post("/confirm", async (req, res) => {
     const pwdHashed = SecurityHelper.hashPassword(Password, salt, 10101, 70);
 
     const URL = Username.replaceAll(" ", "_");
-
+// get a random number between 1000 and 99999999
+    const random = Math.floor(Math.random() * (99999999 - 1000 + 1) + 1000);
 
    const write= await new sql.Request()
     .input('Name', sql.VarChar, Username)
@@ -38,7 +39,7 @@ app.post("/confirm", async (req, res) => {
     .input("URL", sql.VarChar, URL)
     .input("WebSite", sql.VarChar, Site)
     .input("Logo", sql.VarChar, "image.png")
-    .input("PassID", sql.VarChar, "0")
+    .input("PassID", sql.VarChar, String(random ))
     .input("Salt", sql.VarChar, salt)
     .input("Validation", sql.VarChar, "true")
     .query(
@@ -46,7 +47,7 @@ app.post("/confirm", async (req, res) => {
     )
 
     console.log(write)
-    res.redirect("/devs/panel");
+    res.redirect("/panel");
 
 
 
@@ -116,7 +117,7 @@ app.post("/", async (req, res) => {
     
 
         console.log(write)
-      return  res.redirect("/devs/panel");
+      return  res.redirect("/panel");
     
 
 
@@ -133,7 +134,9 @@ app.post("/", async (req, res) => {
 
         
         res.reply("submit", {
-            mode: "mail"
+            mode: "mail",                   login:false
+
+
         });
 
     }

@@ -1,0 +1,11 @@
+<% for (const product of products){ %>
+<a href='/devs/panel/edit/<%= product.ID%>' class="pro_link">
+  <div class="product_row">
+    <img src='/Upload/Images/<%= product.Logo%>' class="logo" />
+    <div class="row_info">
+      <span id="workshop_projects_Label1_0" style="font-size:X-Large;"><%= product.Name %></span>
+      <span id="workshop_projects_Label2_0" style="color:Gray;font-size:Medium;"><%= product.DevName %></span>
+    </div>
+  </div>
+</a>
+<% } %>
